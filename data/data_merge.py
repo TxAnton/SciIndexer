@@ -2,15 +2,14 @@
 import sys
 import os
 import requests
-from SPARQLWrapper import SPARQLWrapper, JSON
+# from SPARQLWrapper import SPARQLWrapper, JSON
 import json
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 from tqdm import tqdm
 import time
 from functools import lru_cache
-from bs4 import BeautifulSoup
-#%%
+# from bs4 import BeautifulSoup
 
 from pathlib import Path
 #%%
@@ -468,7 +467,13 @@ pathes = matched_dict["wheat"]["leaf rust"]["wild_path"] # ['datasets/plantwild_
 
 
 #%%
-
+for taxon in matched_dict:
+    for desease in matched_dict[taxon]:
+        print(taxon,desease)
+        pathes = matched_dict[taxon][desease]["wild_path"] + matched_dict[taxon][desease]["pdoc_path"] + matched_dict[taxon][desease]["pvil_path"]
+        files = ([list(Path(i).iterdir()) for i in pathes])
+        flat_files = [item for sublist in files for item in sublist]
+        print(f"  total images: {len(flat_files)}")
 
 
 #%%
