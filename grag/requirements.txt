@@ -1,0 +1,4 @@
+ipython
+tqdm
+requests
+graphrag
