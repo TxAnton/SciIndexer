@@ -1,1 +1,1 @@
-# plants_llm_vision
+# SciIndexer
